@@ -4,12 +4,18 @@ class UsersController < ApplicationController
   end
 
   def create
+    # Create a new user -> Bcrypt takes in password & confirmation and returns password digest
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = user.id
-      redirect_to :index
+      # Create a session with the users' Id
+      session[:user_id] = @user.id
+      puts "Registration: #{session[:user_id]}"
+      # Redirect to the main index of the site.
+      redirect_to :root, notice: "Successfully Registered!"
     else
+      # flash[:error] = 'An error occured!'
+      # If login wasn't successful redirect them to registration again.
       render :new
     end
   end
@@ -21,7 +27,8 @@ class UsersController < ApplicationController
       :first_name,
       :last_name,
       :email,
-      :password_digest
+      :password,
+      :password_confirmation
       )
   end
 end
