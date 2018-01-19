@@ -122,7 +122,11 @@ cat3.products.create!({
   image: open_asset('furniture2.jpg'),
   quantity: 2,
   price: 987.65
-})
+}).reviews.create!({
+  user_id: 1,
+  description: Faker::Hipster.paragraph(1),
+  rating: 3
+  })
 
 cat3.products.create!({
   name:  'Red Bookshelf',
@@ -130,7 +134,10 @@ cat3.products.create!({
   image: open_asset('furniture3.jpg'),
   quantity: 23,
   price: 2_483.75
-})
-
+}).reviews.create!({
+  user_id: 1,
+  description: Faker::Hipster.paragraph(1),
+  rating: 5
+  })
 
 puts "DONE!"
