@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @line_items = LineItem.joins(:product).where("order_id = #{@order.id}")
-    p "Product name: #{@line_items[0].product.name}"
   end
 
   def create
@@ -12,7 +11,11 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      # redirect_to order, notice: 'Your Order has been placed.'
+      respond_to do |format|
+        UserMailer.email_receipt(order.email, order).deliver_now
+        format.html { redirect_to order, notice: 'Your Order has been placed.'}
+      end
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end

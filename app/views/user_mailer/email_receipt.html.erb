@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for your order.</h1>
+    <p>
+      Order Items:
+    </p>
+      <ul>
+        <% @line_items.each do |item| %>
+        <li> <%= "#{item.product.name} ------ $#{item.product.price}" %>
+      </ul>
+      <% end %>
+    <p>
+      Your total is: <%= "$#{@order.total_cents.to_f / 100}" %>
+    </p>
+    <p>Thanks for ordering and have a great day!</p>
+  </body>
+</html>
