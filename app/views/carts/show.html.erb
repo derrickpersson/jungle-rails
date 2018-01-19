@@ -4,7 +4,13 @@
     <h1>My Cart</h1>
   </header>
 
+  <% if cart.size == 0 %>
+  <p>Looks like your cart is empty!! You should buy some of our really cool gear, we will give you muffins. (Muffins not included in purchase)</p>
+  <%= link_to "Continue Shopping", root_path , class: 'btn btn-lg btn-primary'%>
+  <% else %>
+
   <div class="panel panel-default items">
+
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -50,4 +56,5 @@
     </div>
   </div>
 
+<% end %>
 </section>
