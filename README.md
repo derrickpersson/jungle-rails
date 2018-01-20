@@ -18,16 +18,16 @@ A mini e-commerce application built with Rails 4.2, completed as a course requir
 ## Screenshots
 
 Home Page
-[Jungle Home Page](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_home_page.png?raw=true)
+!["Jungle Home Page"](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_home_page.png?raw=true)
 
 Empty Cart - added conditional logic
-[Empty Cart - added conditional logic](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_empty_cart.png?raw=true)
+!["Empty Cart - added conditional logic"](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_empty_cart.png?raw=true)
 
 Product page - added reviews for individual product. Form hides upon logout.
-[Product page - added reviews for individual product. Form hides upon logout.](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_product_page.png?raw=true)
+!["Product page - added reviews for individual product. Form hides upon logout."](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_product_page.png?raw=true)
 
 Admin page - added categories
-[Admin page - added categories](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_add_category_page.png?raw=true)
+!["Admin page - added categories"](https://github.com/derrickpersson/jungle-rails/blob/master/public/screenshots/Jungle_add_category_page.png?raw=true)
 
 
 ## Stripe Testing
