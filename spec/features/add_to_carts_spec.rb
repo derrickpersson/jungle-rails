@@ -1,0 +1,26 @@
+require 'rails_helper'
+
+RSpec.feature "AddToCarts", type: :feature, js: true do
+  # SETUP
+  before :each do
+    @category = Category.create! name: 'Clothing'
+
+    10.times do |n|
+      @category.products.create!(
+        name: Faker::Hipster.sentence(2),
+        description: Faker::Hipster.paragraph(4),
+        image: open_asset('apparel1.jpg'),
+        quantity: 10,
+        price: 69.99
+      )
+    end
+  end
+
+  scenario "add a product to the cart" do
+    visit root_path
+    find(:link, text: 'Add', class: 'btn btn-primary', match: :first).click
+    sleep 1
+    save_screenshot
+    expect(page).to have_content('My Cart (1)')
+  end
+end
