@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-  before_filter :authorize
 
   def create
     @review = Review.new(review_params)
@@ -13,8 +12,12 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find params[:id]
-    @review.destroy
-    redirect_to :back, notice: 'Review deleted!'
+    if @review.user = current_user
+      @review.destroy
+      redirect_to :back, notice: 'Review deleted!'
+    else
+      redirect_to :back
+    end
   end
 
 private
