@@ -58,6 +58,14 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+    # @line_items = LineItem.where(order_id: order)
+    # p @line_items
+    # @line_items.each do | line_item |
+    #   @product = Product.find_by(id: product_id)
+    #   p @product
+    #   @product.quantity -= line_item.quantity
+    #   p @product
+    # end
     order
   end
 

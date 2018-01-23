@@ -27,22 +27,22 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
     it 'will return a user when given correct credentials' do
       @user = User.create(first_name: 'a', last_name: 'a', email:'a@a.com', password: 'a', password_confirmation: 'a')
-      expect(@user.authenticate_with_credentials("a@a.com", "a")).to eq(@user)
+      expect(User.authenticate_with_credentials("a@a.com", "a")).to eq(@user)
     end
 
     it 'will return nil when given incorrect credentials' do
       @user = User.create(first_name: 'a', last_name: 'a', email:'a@a.com', password: 'a', password_confirmation: 'a')
-      expect(@user.authenticate_with_credentials("a@a.com", "b")).to be_nil
+      expect(User.authenticate_with_credentials("a@a.com", "b")).to be_nil
     end
 
     it 'will return a user when given correct credentials with spaces in the email' do
       @user = User.create(first_name: 'a', last_name: 'a', email:'a@a.com', password: 'a', password_confirmation: 'a')
-      expect(@user.authenticate_with_credentials("    a@a.com   ", "a")).to eq(@user)
+      expect(User.authenticate_with_credentials("    a@a.com   ", "a")).to eq(@user)
     end
 
     it 'will return a user when given correct credentials with random capitalization in the email' do
-      @user = User.create(first_name: 'a', last_name: 'a', email:'a@A.com', password: 'a', password_confirmation: 'a')
-      expect(@user.authenticate_with_credentials("A@a.CoM", "a")).to eq(@user)
+      @user = User.create(first_name: 'a', last_name: 'a', email:'a@a.com', password: 'a', password_confirmation: 'a')
+      expect(User.authenticate_with_credentials("A@a.CoM", "a")).to eq(@user)
     end
 
   end
